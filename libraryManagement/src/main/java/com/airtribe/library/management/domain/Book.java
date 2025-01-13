@@ -10,7 +10,6 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @Builder
-
 @Entity
 public class Book {
 
@@ -19,9 +18,9 @@ public class Book {
     private String tittle;
     private String author;
     private String publicationYear;
-
+    private Boolean isBookAvailable;
     private BookRecord bookRecord;
-    //private Boolean isBookAvailable;
+
 
 
 }

@@ -33,47 +33,30 @@ public class BookManagementService {
     }
 
 
-    public BookRecord updateBookRecordForIssue(Book book){
+    public BookRecord updateBookRecordForIssue(Book book) {
+        book.setIsBookAvailable(false);
         BookRecord existingBookRecord = book.getBookRecord();
         existingBookRecord.setDateOfIssue(DateUtility.convertCurrentDateToString());
         return existingBookRecord;
     }
 
-    public void updateBookRecordOnReturn(Book book){
+    public void updateBookDetailsOnReturn(Book book) {
+        book.setIsBookAvailable(true);
         BookRecord existingBookRecord = book.getBookRecord();
         existingBookRecord.setDateOfReturn(DateUtility.convertCurrentDateToString());
     }
 
-
-
-
-    public void addBook(Book book){
-         bookRepository.save(book);
-        //Whenever user returns book
-        //Whenever new stock is added
+    public void addBook(Book book) {
+        bookRepository.save(book);
     }
 
-    public void removeBook(Book book){
+    public void removeBook(Book book) {
         bookRepository.delete(book);
-
-        //Whenever a book is issued;
-        //WHenever a book inventory is zero;
-
     }
 
-    public long findTotalCountOfBooks(){
+    public long findTotalCountOfBooks() {
         return bookRepository.findAll().size();
     }
 
 
-
-    //Search Functionality
-
-    // Method for combined search by title, author, or ISBN
-
-
-
-//    public long findTotalCountOfAvailableBooks(){
-//        return bookRepository.findAll().stream().filter(
-//        )}
 }

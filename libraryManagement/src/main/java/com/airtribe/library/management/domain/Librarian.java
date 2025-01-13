@@ -11,25 +11,4 @@ public class Librarian {
     private String emailId;
     private String phoneNumber;
     private UserTypes userType;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private BookRepository bookRepository;
-
-
-    public void registerNewUser(User user){
-        userRepository.save(user);
-
-    }
-
-    public void removeExistingUser(User user){
-        userRepository.delete(user);
-    }
-
-    public void searchBook(Book book){
-       // bookRepository.findBy()
-   ; }
-
 }
