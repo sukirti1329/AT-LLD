@@ -77,3 +77,82 @@ SOLID Principles
 **Scope of improvement:** Due to time constrainst, following could not be achieved. Following refactoring is good to have: 
    The entities could be more refined and the relationship could be more precise.
    Application of SOLID principles more precisely. 
+   Abstraction for user is pending. Which will be refined as per the class diagram given below:
+
+
+**CLASS diagram :**
++------------------------------------------+
+|               <<abstract>>              |
+|                  User                    |
+|------------------------------------------|
+| - memberId: String                       |
+| - name: String                           |
+| - email: String                          |
+| - userType: UserType                     |
+|------------------------------------------|
+| + registerUser()                         |
+| + deRegisterUser()                       |
+| + checkInBook()                          |
+| + checkOutBook()                         |
+| + getBorrowedBooks()                     |
+| + searchBooks()                          |
++------------------------------------------+
+                 /  \
+                /    \
+               /      \
++----------------+   +----------------+
+|   Librarian    |   |     Member     |
+|----------------|   |----------------|
+| - role: String  |   | - borrowedBooks: List<BookRecord> |
++----------------+   +----------------+
+        |
+        |
+        v
++------------------------------------------+
+|                 Book                     |
+|------------------------------------------|
+| - isbn: String                           |
+| - title: String                          |
+| - author: String                         |
+| - isAvailable: boolean                   |
++------------------------------------------+
+        |
+        v
++------------------------------------------+
+|               BookRecord                 |
+|------------------------------------------|
+| - isbn: String                           |
+| - borrowedDate: Date                     |
+| - returnedDate: Date                     |
++------------------------------------------+
+        ^
+        |
++-----------------------------+
+|   UserManagementService      |
+|-----------------------------|
+| + registerUser()             |
+| + deRegisterUser()           |
+| + checkInBook()              |
+| + checkOutBook()             |
+| + getBorrowedBooks()         |
+| + searchBooks()              |
++-----------------------------+
+        ^
+        |
++-----------------------------+
+|    BookManagementService     |
+|-----------------------------|
+| + addBook()                  |
+| + removeBook()               |
+| + searchBooks()              |
++-----------------------------+
+        ^
+        |
++-----------------------------+
+|        LendingService        |
+|-----------------------------|
+| + issueBook()                |
+| + returnBook()               |
++-----------------------------+
+
+
