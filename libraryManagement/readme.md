@@ -81,6 +81,8 @@ SOLID Principles
 
 
 **CLASS diagram :**
+
+
 +------------------------------------------+
 |               <<abstract>>              |
 |                  User                    |
@@ -154,5 +156,6 @@ SOLID Principles
 | + issueBook()                |
 | + returnBook()               |
 +-----------------------------+
+
 
 
