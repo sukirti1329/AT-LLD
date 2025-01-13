@@ -3,7 +3,6 @@ package com.airtribe.library.management.repository;
 import com.airtribe.library.management.domain.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, String> {
 

@@ -6,9 +6,15 @@ import com.airtribe.library.management.repository.BookRepository;
 import com.airtribe.library.management.util.DateUtility;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Slf4j
+//@Slf4j
 public class BookManagementService {
+
+
+    private static final Logger log = LoggerFactory.getLogger(BookManagementService.class);
+
 
     @Autowired
     private BookRepository bookRepository;

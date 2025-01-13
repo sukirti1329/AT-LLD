@@ -59,6 +59,7 @@ public class UserManagementService {
         userDetails.flatMap(value -> value.getBookRecord().stream().filter(bookRecord -> bookRecord.getISBN().equals(book.getISBN())).findFirst()).ifPresent(bookRecord -> bookRecord.setDateOfReturn(DateUtility.convertCurrentDateToString()));
     }
 
+    //User should be able to search books
     public Book searchBook(String title, String author, String isbn) {
         return bookManagementService.searchBooksByAnyField(isbn, title, author);
     }
